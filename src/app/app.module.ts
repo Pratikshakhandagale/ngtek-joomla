@@ -1,36 +1,52 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
+import { NgModule } from '@angular/core';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
-
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
-
-//Componenets
 import { AppComponent } from './app.component';
+import { ArticleComponent } from './article/article.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http'; 
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { HeaderComponent } from './header/header.component';
+import { ListComponent } from './list/list.component';
+import { ArticleEditComponent } from './article-edit/article-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ContentLibModule } from 'projects/content-lib/src/lib/content-lib.module';
+import { UserLoginModule } from 'projects/user-login/src/lib/user-login.module';
 
-const appRoutes: Routes = [
+import { FormsModule } from '@angular/forms';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { DetailsComponent } from './details/details.component';
+import { UserComponent } from './user/user.component';
+//  googleClientId : '1005635293950-29g89s87fm0dvj3540rsufta0oguts1l.apps.googleusercontent.com',
 
-];
-
+const config = {
+  googleClientId : '312478341535-t542no2kv0ffdskdshkreas4drf1ihc1.apps.googleusercontent.com',
+  fbAppId : '2037079629930934',
+  baseUrl: 'https://smart-citizen.tekdi.net'
+};
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ArticleComponent,
+    HeaderComponent,
+    ListComponent,
+    ArticleEditComponent,
+    DetailsComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    ),
-    MDBBootstrapModule.forRoot()
-
+    HttpClientModule,
+    ReactiveFormsModule,
+    ContentLibModule.forRoot(environment),
+    FormsModule,
+    AngularEditorModule,
+    UserLoginModule.forRoot(config)
   ],
-  providers: [],
-  bootstrap: [AppComponent],
-  schemas: [ NO_ERRORS_SCHEMA ]
-
+  schemas: [ NO_ERRORS_SCHEMA ],
+  providers: [HttpClientModule],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
