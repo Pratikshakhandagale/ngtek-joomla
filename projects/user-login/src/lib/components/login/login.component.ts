@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {
     this.siteUrl = localStorage.getItem('baseUrl');
-    alert(this.siteUrl);
+    //alert(this.siteUrl);
 
   }
 

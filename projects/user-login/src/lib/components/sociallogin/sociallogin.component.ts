@@ -14,18 +14,18 @@ import { Router } from '@angular/router';
 export class SocialloginComponent implements OnInit {
   @Input() facebook: boolean;
   @Input() google: boolean;
-   siteUrl : string;
-  @Output() signInUserData = new EventEmitter();
   @Input() navUrl: string;
+  @Output() loginUserData = new EventEmitter();
+  siteUrl: string;
 
   loggedIn: any;
   constructor(private authService: AuthService,
-    private socialloginService: SocialloginService, 
+    private socialloginService: SocialloginService,
     private router: Router
-    ) { 
-      this.siteUrl = localStorage.getItem('baseUrl');
-alert(this.siteUrl);
-    }
+  ) {
+    this.siteUrl = localStorage.getItem('baseUrl');
+    //alert(this.siteUrl);
+  }
 
   ngOnInit() {
     this.socialloginService.init(this.siteUrl);
@@ -37,13 +37,11 @@ alert(this.siteUrl);
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(res => {
       this.socialloginService.doSocialLogin(res.authToken, res.provider).then(res => {
-        this.signInUserData.emit(res);
-        if(this.navUrl)
-      {
-        this.router.navigate(['/' + this.navUrl]);
-      }else{
-        this.signInUserData.emit(res);
-      }
+        if (this.navUrl) {
+          this.router.navigate(['/' + this.navUrl]);
+        } else {
+          this.loginUserData.emit(res);
+        }
       });
     });
   }
@@ -51,7 +49,7 @@ alert(this.siteUrl);
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(res => {
       this.socialloginService.doSocialLogin(res.authToken, res.provider).then(res => {
-        this.signInUserData.emit(res);
+        this.loginUserData.emit(res);
       });
     });
   }

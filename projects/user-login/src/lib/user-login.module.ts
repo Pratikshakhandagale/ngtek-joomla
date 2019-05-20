@@ -2,7 +2,8 @@ import { NgModule, InjectionToken, ModuleWithProviders } from '@angular/core';
 import { UserLoginComponent } from './user-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { UserRoutingModule } from './user-login-routing.module';
 
 //Componenets
 import { SocialloginComponent } from './components/sociallogin/sociallogin.component'
@@ -13,6 +14,12 @@ import { LoginService } from './providers/login.service';
 
 //Social login third party module
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+//import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
+const userRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'sociallogin', component: SocialloginComponent },
+];
 
 var googleClientId;
 var fbAppId;
@@ -38,12 +45,16 @@ const ContentFulData = new InjectionToken<ComponenetsInterface>("ComponenetsInte
     HttpClientModule,
     ReactiveFormsModule,
     SocialLoginModule,
+   // MDBBootstrapModule.forRoot(),
+   RouterModule.forRoot(userRoutes),
+   UserRoutingModule
+
   ],
   exports: [
     UserLoginComponent,
     LoginComponent,
     SocialloginComponent,
-    //MDBBootstrapModule
+    RouterModule
   ],
   providers: [
     LoginService,
@@ -104,6 +115,6 @@ function provideConfig() {
 })
 
 
-export class UserLoginModule1 extends UserLoginModule {
+export class UserLoginModules extends UserLoginModule {
 
 }
