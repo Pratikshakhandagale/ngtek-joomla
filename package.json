@@ -1,15 +1,23 @@
 {
   "name": "ngtek-user-login",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build_lib": "ng build user-login",
+    "npm_pack": "cd dist/user-login && npm pack",
+    "package": "npm run build_lib && npm run npm_pack"
   },
-  "private": true,
+  "description": "This is an Angular module is useful for user login in an angular app. It provides the login template, user login and logout functionality. [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.",
+  "author": "Tekdi Technologies",
+  "license": "GPL-3.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@angular/animations": "~7.2.0",
     "@angular/common": "~7.2.0",
@@ -19,8 +27,12 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
-    "angular-bootstrap-md": "^7.5.1",
+    "@tekdi/ngtek-user-login": "file:dist/user-login/tekdi-ngtek-user-login-0.0.5.tgz",
+    "angular-bootstrap-md": "^7.5.2",
+    "angularx-social-login": "^1.2.7",
+    "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
+    "npm": "^5.6.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
@@ -49,23 +61,5 @@
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
-  },
-  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tekdi/ngtek-joomla.git"
-  },
-  "keywords": [
-    "joomla",
-    "login",
-    "user module",
-    "social login"
-  ],
-  "author": "Tekdi Technologies",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tekdi/ngtek-joomla/issues"
-  },
-  "homepage": "https://github.com/tekdi/ngtek-joomla#readme"
+  }
 }

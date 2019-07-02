@@ -1,0 +1,13 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/user-login",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "externals": {
+      "angularx-social-login": "^1.2.7",
+    "bootstrap": "^4.3.1"
+    }
+  },
+  "whitelistedNonPeerDependencies": ["."]
+
+}

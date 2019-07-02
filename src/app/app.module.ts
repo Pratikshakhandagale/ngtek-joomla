@@ -1,18 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
-
+import { AppComponent } from './app.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
-//Componenets
-import { AppComponent } from './app.component';
+//import { UserLoginModule } from '@tekdi/ngtek-user-login';
 
-const appRoutes: Routes = [
-
-];
-
+import { UserLoginModule } from 'projects/user-login/src/lib/user-login.module';
+import { environment } from '../environments/environment';
+const config  = environment.loginConfig;
 
 @NgModule({
   declarations: [
@@ -21,16 +18,11 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    ),
+    UserLoginModule.forRoot(config),
     MDBBootstrapModule.forRoot()
-
   ],
-  providers: [],
-  bootstrap: [AppComponent],
-  schemas: [ NO_ERRORS_SCHEMA ]
-
+  providers: [ ],
+  schemas: [ NO_ERRORS_SCHEMA ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,40 @@
+{
+  "name": "@tekdi/ngtek-user-login",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tekdi/ngtek-joomla.git"
+  },
+  "peerDependencies": {
+    "@angular/common": "^7.2.0",
+    "@angular/core": "^7.2.0",
+    "angularx-social-login": "^1.2.7",
+    "bootstrap": "^4.3.1"
+  },
+  "dependencies": {
+    "angularx-social-login": "^1.2.7",
+    "bootstrap": "^4.3.1"
+  },
+  "description": "This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.",
+  "bugs": {
+    "url": "https://github.com/tekdi/ngtek-joomla/issues"
+  },
+  "homepage": "https://github.com/tekdi/ngtek-joomla#readme",
+  "main": "User login",
+  "devDependencies": {},
+  "scripts": {
+    "build": "ng build"
+  },
+  "keywords": [
+    "UserLoginModule",
+    "SocialLogin",
+    "Angular",
+    "ionic",
+    "joomla"
+  ],
+  "author": "Tekdi Technologies",
+  "license": "GPL-3.0",
+  "publicConfig": {
+    "access": "public"
+  }
+}
