@@ -92,4 +92,3 @@ In ionic -  ```global.scss```
 ### Sample Demo 
 For Angular - https://github.com/Pratikshakhandagale/ngtek-user-login-AngularDemo
 
-For Ionic - https://github.com/Pratikshakhandagale/ngtek-user-login-IonicDemo
